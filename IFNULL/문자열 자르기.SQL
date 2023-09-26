@@ -9,7 +9,7 @@ ORDER BY WAREHOUSE_ID
 
 /* 
 SELECT IFNULL(Column명, "null일 경우 대체 값") FROM 테이블명
-SELECT IF(IS NULL(NAME), "NO name", NAME) as NAME FROM 테이블명
+SELECT IF(NAME IS NULL, "NO name", NAME) as NAME FROM 테이블명
 */
 
 /*
