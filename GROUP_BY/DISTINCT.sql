@@ -17,3 +17,12 @@ GROUP BY로 묶은 건 년, 월, 성별!! -> 한 명의 고객이 여러번 집�
 고객ID는 중복제거가 되지 않았기 때문에
 DISTINCT A.USER_ID를 해줘야 한다!
 */
+
+-- 소수점 처리방법
+SELECT order_date
+      ,count(distinct CASE WHEN category = "Furniture" THEN order_id END) as "furniture"
+      ,count(distinct CASE WHEN category = "Furniture" THEN order_id END)/(count(distinct order_id)+0.00) as furniture_pct
+FROM records
+GROUP BY order_date
+HAVING COUNT(distinct order_id) >= 10
+ORDER BY furniture_pct desc, order_date
